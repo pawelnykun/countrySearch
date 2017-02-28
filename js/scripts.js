@@ -12,30 +12,51 @@ $(function() {
 	  		method: 'GET',
 	  		success: showCountriesList
 	  	});
-	  	results.css("display", "flex");
 	}
 
 	function showCountriesList(resp) {
+		results.css('display','flex');
 	  	countriesList.empty();
-	  	var tbody = countriesList.find('<tbody>');
-	  	resp.forEach(function(item){
+	  	resp.forEach(function(item) {
+	  		results.find('h2').text(item.name);
+	  		$('<thead><tr><th>&darr; INFORMATION &darr;</th><th>&darr; DETAILS &darr;</th></tr></thead><tbody></tbody>').appendTo(countriesList);
+	  		var tbody = countriesList.find('tbody');
 	  		$('<tr>').appendTo(tbody);
-	  		$('<td>').text("Name: ").appendTo(tbody);
-		   	/*$('<li>').text("Country: " + item.name).appendTo(countriesList);
-		   	$('<li>').text("Native Name: " + item.nativeName).appendTo(countriesList);
-		   	$('<li>').text("Code: " + item.alpha2Code + " or " + item.alpha3Code).appendTo(countriesList);
-		   	$('<li>').text("Population: " + item.population).appendTo(countriesList);
-		   	$('<li>').text("Capital: " + item.capital).appendTo(countriesList);
-		   	$('<li>').text("Language: " + item.languages).appendTo(countriesList);
-		   	$('<li>').text("Region: " + item.region).appendTo(countriesList);
-		   	$('<li>').text("Subregion: " + item.subregion).appendTo(countriesList);
-		   	$('<li>').text("Timezones: ").appendTo(countriesList);
-		   	for( var i = 0; i < item.timezones.length; i++ ) {
-		   		countriesList.find('li:last-of-type').append(" " + item.timezones[i]);
-		   	}
-		   	$('<li>').text("Calling Code: " + item.callingCodes).appendTo(countriesList);
-		   	$('<li>').text("Borders: " + item.borders).appendTo(countriesList);
-		   	$('<li>').text("Currencies: " + item.currencies).appendTo(countriesList);*/
+	  		$('<td>').text("Name: ").appendTo(tbody.find('tr'));
+	  		$('<td>').text(item.name).appendTo(tbody.find('tr'));
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Native Name: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.nativeName).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Code: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.alpha2Code + " or " + item.alpha3Code).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Population: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.population).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Capital: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.capital).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Language: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.languages).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Region: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.region).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Subregion: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.subregion).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Timezones: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.timezones).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Calling Code: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.callingCodes).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Borders: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.borders).appendTo(tbody.find('tr').last());
+	  		$('<tr>').appendTo(tbody);
+	  		$('<td>').text("Currencies: ").appendTo(tbody.find('tr').last());
+	  		$('<td>').text(item.currencies).appendTo(tbody.find('tr').last());
 		});
 	}
 });
