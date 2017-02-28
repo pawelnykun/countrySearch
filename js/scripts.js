@@ -3,6 +3,13 @@ $(function() {
 	var countriesList = $('#countries');
 	var results = $('.results');
 	$('#search').click(searchCountries);
+	$('#country-name').keypress(function(e){
+		switch (e.keyCode) {
+        	case 13:
+            	searchCountries();
+            	break;
+        }
+	});
 
 	function searchCountries() {
   		var countryName = $('#country-name').val();
@@ -45,9 +52,6 @@ $(function() {
 	  		$('<tr>').appendTo(tbody);
 	  		$('<td>').text("Subregion: ").appendTo(tbody.find('tr').last());
 	  		$('<td>').text(item.subregion).appendTo(tbody.find('tr').last());
-	  		$('<tr>').appendTo(tbody);
-	  		$('<td>').text("Timezones: ").appendTo(tbody.find('tr').last());
-	  		$('<td>').text(item.timezones).appendTo(tbody.find('tr').last());
 	  		$('<tr>').appendTo(tbody);
 	  		$('<td>').text("Calling Code: ").appendTo(tbody.find('tr').last());
 	  		$('<td>').text(item.callingCodes).appendTo(tbody.find('tr').last());
