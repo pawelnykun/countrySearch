@@ -25,7 +25,9 @@ $(function() {
 		results.css('display','flex');
 	  	countriesList.empty();
 	  	resp.forEach(function(item) {
-	  		results.find('h2').text(item.name);
+	  		var flagImg = 'http://www.geognos.com/api/en/countries/flag/' + item.alpha2Code + '.png';
+	  		results.find('h2').text(item.name).append($('<img class="flag img-responsive img-rounded" alt="flag" src=' + flagImg + '>'));
+
 	  		$('<thead><tr><th>&darr; INFORMATION &darr;</th><th>&darr; DETAILS &darr;</th></tr></thead><tbody></tbody>').appendTo(countriesList);
 	  		var tbody = countriesList.find('tbody');
 	  		$('<tr>').appendTo(tbody);
