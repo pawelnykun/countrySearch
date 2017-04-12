@@ -10,13 +10,23 @@
 </head>
 <body>
 	<div class="container">
-		<h1>●Search Country●</h1>
-		<div class="main">
-			<input id="country-name" class="form-control" type="text" placeholder="Type the name of the country here"/>
-			<button id="search">Search</button>
+		<div class="row">
+			<h1>●Search Country●</h1>
 		</div>
-		<div class="results">
-			<div id="countries"></div>
+		<div class="row main">
+			<div class="row">
+				<div class="col-md-8">
+					<input id="country-name" class="form-control" type="text" placeholder="Type the name of the country here"/>
+				</div>
+				<div class="col-md-4">
+					<button id="search">Search</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="results">
+				<div id="countries"></div>
+			</div>
 		</div>
 	</div>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>

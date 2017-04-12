@@ -7,7 +7,7 @@
 
 body {
 	margin: 0;
-	background: url("../nasa.jpg") 0/cover no-repeat;
+	background: url("../img/nasa.jpg") 0/cover no-repeat;
 	width: 100%;
 	min-height: 100vh;
 }
@@ -28,7 +28,7 @@ body {
 	font-family: 'Raleway', sans-serif;
 	font-size: 80px;
 	font-weight: 900;
-	padding: 50px;
+	padding: 50px 0;
 }
 
 .results h2 {
@@ -109,4 +109,23 @@ footer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+/* RWD */
+@media(max-width: 767px) {
+	.container h1 {
+		font-size: 50px;
+	}
+
+	#country-name {
+		width: 250px;
+	}
+
+	.results h2 {
+		font-size: 25px;
+	}
+
+	#search {
+		margin-top: 20px;
+	}
 }
