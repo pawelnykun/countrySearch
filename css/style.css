@@ -39,6 +39,7 @@ body {
 .flag {
 	margin: auto 15px;
 	display: inline-block;
+	cursor: pointer;
 }
 
 .main, .results {

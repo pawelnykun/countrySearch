@@ -25,11 +25,16 @@ $(function() {
 		results.css('display','flex');
 	  	countriesList.empty();
 	  	resp.forEach(function(item) {
-	  		var flagImg = 'http://www.geognos.com/api/en/countries/flag/' + item.alpha2Code + '.png';
-	  		results.find('h2').text(item.name).append($('<img class="flag img-responsive img-rounded" alt="flag" src=' + flagImg + '>'));
 
-	  		$('<thead><tr><th>&darr; INFORMATION &darr;</th><th>&darr; DETAILS &darr;</th></tr></thead><tbody></tbody>').appendTo(countriesList);
-	  		var tbody = countriesList.find('tbody');
+	  		var container = $('<div>');
+	  		$(container).addClass('container-result');
+
+	  		var flagImg = 'http://www.geognos.com/api/en/countries/flag/' + item.alpha2Code + '.png';
+	  		$('<h2>').text(item.name).append($('<img class="flag img-responsive img-rounded" alt="flag" src=' + flagImg + '>')).appendTo(container);
+
+	  		$('<table>').addClass('table table-bordered table-hover')
+	  		.append($('<thead><tr><th>&darr; INFORMATION &darr;</th><th>&darr; DETAILS &darr;</th></tr></thead><tbody></tbody>')).appendTo(container);
+	  		var tbody = container.find('tbody').last();
 	  		$('<tr>').appendTo(tbody);
 	  		$('<td>').text("Name: ").appendTo(tbody.find('tr'));
 	  		$('<td>').text(item.name).appendTo(tbody.find('tr'));
@@ -63,6 +68,11 @@ $(function() {
 	  		$('<tr>').appendTo(tbody);
 	  		$('<td>').text("Currencies: ").appendTo(tbody.find('tr').last());
 	  		$('<td>').text(item.currencies).appendTo(tbody.find('tr').last());
+
+	  		$(container).appendTo(countriesList).find('table').last().hide();
+	  		$(container).find('h2').last().click(function() {
+				$(container).find('table').slideToggle();
+			});
 		});
 	}
 });
